@@ -3,11 +3,11 @@
 return [
     'plugin' => [
         'name' => 'testimonials',
-        'description' => 'No description provided yet...',
+        'description' => 'Simple testimonials plugin',
     ],
     'permissions' => [
         'some_permission' => 'Permission example',
-        'create_testimonials' => 'depcore.testimonials::lang.permissions.create_testimonials',
+        'create_testimonials' => 'Create testimonials',
     ],
     'testimonial' => [
         'new' => 'New Testimonial',
@@ -16,6 +16,12 @@ return [
         'update_title' => 'Edit Testimonial',
         'preview_title' => 'Preview Testimonial',
         'list_title' => 'Manage Testimonials',
+        'author' => 'Author',
+        'author_required' => 'The author field is required',
+        'content_required' => 'The content field is required',
+        'is_published' => 'Publish this testimonial',
+        'company_name' => 'Company name',
+        'content' => 'Content',
     ],
     'testimonials' => [
         'delete_selected_confirm' => 'Delete the selected Testimonials?',
@@ -28,17 +34,17 @@ return [
     'components' => [
         'testimonialslist' => [
             'name' => 'TestimonialsList Component',
-            'description' => 'No description provided yet...',
+            'description' => 'List of testimonials',
             'max_items' => [
-                'title' => 'depcore.testimonials::lang.components.testimonialslist.max_items.title',
-                'validation_message' => 'depcore.testimonials::lang.components.testimonialslist.max_items.validation_message',
-                'placeholder' => 'depcore.testimonials::lang.components.testimonialslist.max_items.placeholder',
+                'title' => 'Max items',
+                'validation_message' => 'Please provide a valid number',
+                'placeholder' => '0 or null equals all testimonials',
+                'description' => 'Provide a number of testimonials you wish to show',
             ],
         ],
     ],
-    'componentstestimonialslist' => [
-        'max_items' => [
-            'description' => 'depcore.testimonials::lang.componentstestimonialslist.max_items.description',
-        ],
+    'global' => [
+        'no' => 'no',
+        'yes' => 'yes',
     ],
 ];

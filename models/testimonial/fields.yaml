@@ -3,6 +3,20 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    author:
+      label: depcore.testimonials::lang.testimonial.author
+      type: text
+      span: left
+    company_name:
+      label: depcore.testimonials::lang.testimonial.company_name
+      type: text
+      span: right
+    content:
+      label: depcore.testimonials::lang.testimonial.content
+      type: richeditor
+      span: full
+    is_published:
+      label: depcore.testimonials::lang.testimonial.is_published
+      type: switch
+      on: depcore.testimonials::lang.global.yes
+      off: depcore.testimonials::lang.global.no

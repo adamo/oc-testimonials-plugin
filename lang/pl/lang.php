@@ -16,6 +16,12 @@ return [
         'update_title' => 'Edytuj referencję',
         'preview_title' => 'Podgląd referencji',
         'list_title' => 'Zarządzaj referencją',
+        'author' => 'Autor',
+        'author_required' => 'Wymagane jest podanie autora',
+        'content_required' => 'Treść jest wymagana',
+        'is_published' => 'Opublikować?',
+        'company_name' => 'Nazwa firmy',
+        'content' => 'Treść',
     ],
     'testimonials' => [
         'delete_selected_confirm' => 'Usunąć zaznaczoną referencję?',
@@ -33,8 +39,12 @@ return [
                 'title' => 'Maksymalna ilość',
                 'validation_message' => 'Proszę podać liczbę lub zostawić puste',
                 'placeholder' => '0 lub liczba',
-            	'description' => 'depcore.testimonials::lang.componentstestimonialslist.max_items.description',
+                'description' => 'depcore.testimonials::lang.componentstestimonialslist.max_items.description',
             ],
         ],
+    ],
+    'global' => [
+        'no' => 'tak',
+        'yes' => 'nie',
     ],
 ];

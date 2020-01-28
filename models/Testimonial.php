@@ -8,11 +8,21 @@ use Model;
 class Testimonial extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Sortable;
+    use \October\Rain\Database\Traits\Sluggable;
+
 
     /**
      * @var string The database table used by the model.
      */
     public $table = 'depcore_testimonials_testimonials';
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = [
+        'content',
+    ];
+
+    protected $slugs = ['slug' => ['id','author']];
 
     /**
      * @var array Guarded fields
@@ -27,27 +37,15 @@ class Testimonial extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'author' => 'required',
+        'content' => 'required',
+    ];
 
-    /**
-     * @var array Attributes to be cast to native types
-     */
-    protected $casts = [];
-
-    /**
-     * @var array Attributes to be cast to JSON
-     */
-    protected $jsonable = [];
-
-    /**
-     * @var array Attributes to be appended to the API representation of the model (ex. toArray())
-     */
-    protected $appends = [];
-
-    /**
-     * @var array Attributes to be removed from the API representation of the model (ex. toArray())
-     */
-    protected $hidden = [];
+    public $customMessages = [
+        'author.required' => 'depcore.testimonials::lang.testimonial.author_required',
+        'content.required' => 'depcore.testimonials::lang.testimonial.content_required',
+    ];
 
     /**
      * @var array Attributes to be cast to Argon (Carbon) instances
@@ -57,16 +55,7 @@ class Testimonial extends Model
         'updated_at'
     ];
 
-    /**
-     * @var array Relations
-     */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $attachOne = [
+        'client_logo' => 'System\Models\File',
+    ];
 }
