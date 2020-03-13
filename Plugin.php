@@ -34,6 +34,10 @@ class Plugin extends PluginBase
 
     }
 
+    public function registerPageSnippets(){
+        return $this->registerComponents(  );
+    }
+
     /**
      * Boot method, called right before the request route.
      *
@@ -53,6 +57,7 @@ class Plugin extends PluginBase
     {
         return [
             'Depcore\Testimonials\Components\TestimonialsList' => 'testimonialsList',
+            'Depcore\Testimonials\Components\ClientsList' => 'clientsList',
         ];
     }
 
@@ -85,8 +90,34 @@ class Plugin extends PluginBase
                 'url'         => Backend::url('depcore/testimonials/testimonials'),
                 'icon'        => 'icon-commenting-o',
                 'iconSvg'     => 'plugins/depcore/testimonials/assets/images/icon.svg',
-                'permissions' => ['depcore.testimonials.*'],
+                'permissions' => ['depcore.testimonials.create_testimonials'],
                 'order'       => 500,
+                'sideMenu'    => [
+                    'testimonials' => [
+                        'label' => 'depcore.testimonials::lang.testimonials.label',
+                        'url'   => Backend::url('depcore/testimonials/testimonials'),
+                        'icon'        => 'icon-commenting-o',
+                        'permissions' => ['depcore.testimonials.create_testimonials'],
+                    ],
+                    'newtestimonial' => [
+                        'label' => 'depcore.testimonials::lang.testimonials.new',
+                        'url'   => Backend::url('depcore/testimonials/testimonials/create'),
+                        'icon'        => 'icon-plus',
+                        'permissions' => ['depcore.testimonials.create_testimonials'],
+                    ],
+                    'clients' => [
+                        'label' => 'depcore.testimonials::lang.clients.label',
+                        'url'   => Backend::url('depcore/testimonials/clients'),
+                        'icon'        => 'icon-user',
+                        'permissions' => ['depcore.testimonials.create_testimonials'],
+                    ],
+                    'newclient' => [
+                        'label' => 'depcore.testimonials::lang.clients.new',
+                        'url'   => Backend::url('depcore/testimonials/clients/create'),
+                        'icon'        => 'icon-plus',
+                        'permissions' => ['depcore.testimonials.create_testimonials'],
+                    ],
+                ],
             ],
         ];
     }

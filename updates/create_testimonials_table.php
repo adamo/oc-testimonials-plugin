@@ -12,10 +12,9 @@ class CreateTestimonialsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('author');
-            $table->string('company_name');
+            $table->string('company_position')->nullable();
             $table->string('slug')->index();
-
-            $table->text('content')->nullable();
+            $table->text('content');
             $table->boolean('is_published')->default(false);
             $table->integer('sort_order')->default(0);
             $table->date('issued_at')->nullable();

@@ -20,6 +20,7 @@ class Testimonial extends Model
 
     public $translatable = [
         'content',
+        'position'
     ];
 
     protected $slugs = ['slug' => ['id','author']];
@@ -58,4 +59,18 @@ class Testimonial extends Model
     public $attachOne = [
         'client_logo' => 'System\Models\File',
     ];
+
+    public $belongsTo = [
+        'client' => ['Depcore\Testimonials\Models\Client'],
+    ];
+
+    /**
+     * Get only published elements from database
+     *
+     * @return Object
+     * @author Adam
+     **/
+    public function scopePublished( $query ) {
+        return $query->whereNotNull('is_published')->where ( 'is_published',true )->orderBy( 'sort_order' );
+    }
 }
