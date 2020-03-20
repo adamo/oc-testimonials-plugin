@@ -33,6 +33,7 @@ return [
         'delete_selected_empty' => 'Nie wybrano referencji do usunięcia.',
         'label' => 'Referencje',
         'new' => 'Dodaj referencje',
+        'reorder' => 'depcore.testimonials::lang.testimonials.reorder',
     ],
     'components' => [
         'testimonialslist' => [
@@ -50,6 +51,7 @@ return [
                 'placeholder' => 'Lista lub lista przewijana',
                 'list' => 'Lista',
                 'slider' => 'Lista przewijana',
+                'validation_message' => 'depcore.testimonials::lang.components.testimonialslist.show_as.validation_message',
             ],
             'show_client_logo' => [
                 'title' => 'Pokaż logo klienta',
@@ -59,7 +61,7 @@ return [
                 'title' => 'Ilość na stronie',
                 'description' => 'W przypadku wyświetlania jako lista ile referencji na stronę ma się pojawiać',
                 'validation_message' => 'Proszę podać poprawną liczbę',
-                'placeholder' => '0-',
+                'placeholder' => '0',
             ],
             'groups' => [
                 'list_options' => 'Opcje listy',
@@ -71,6 +73,17 @@ return [
             'show_slider' => [
                 'title' => 'Karuzela',
                 'description' => 'Wyświetla listę jako przewijaną karuzelę',
+                'validation_message' => 'depcore.testimonials::lang.components.clientslist.show_slider.validation_message',
+                'placeholder' => 'depcore.testimonials::lang.components.clientslist.show_slider.placeholder',
+            ],
+        ],
+        'testimoniallist' => [
+            'include_css' => [
+                'title' => 'Dołącz CSS',
+                'description' => 'Dołącza podstawowy arkusz styli z wtyczki Tiny Slider',
+            ],
+            'groups' => [
+                'slider_options' => 'Opcje karuzeli',
             ],
         ],
     ],
@@ -98,5 +111,6 @@ return [
         'delete_selected_empty' => 'Nie wybrano klientów do usunięcia.',
         'label' => 'Klienci',
         'new' => 'Dodaj klienta',
+        'reorder' => 'Zmień kolejność',
     ],
 ];

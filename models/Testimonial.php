@@ -70,7 +70,9 @@ class Testimonial extends Model
      * @return Object
      * @author Adam
      **/
-    public function scopePublished( $query ) {
-        return $query->whereNotNull('is_published')->where ( 'is_published',true )->orderBy( 'sort_order' );
+    public function scopePublished( $query, $maxItems = null ) {
+        $query = $query->whereNotNull('is_published')->where ( 'is_published',true )->orderBy( 'sort_order' );
+        if ($maxItems) $query = $query->take( $maxItems );
+        return $query;
     }
 }

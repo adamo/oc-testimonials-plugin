@@ -23,7 +23,7 @@ class TestimonialsList extends ComponentBase
     public function defineProperties()
     {
         return [
-            'showAs' => [
+            'show_as' => [
                 'title'             => 'depcore.testimonials::lang.components.testimonialslist.show_as.title',
                 'description'       => 'depcore.testimonials::lang.components.testimonialslist.show_as.description',
                 'default'           => 'list',
@@ -35,7 +35,7 @@ class TestimonialsList extends ComponentBase
                     'list'=>'depcore.testimonials::lang.components.testimonialslist.show_as.list',
                     'slider'=>'depcore.testimonials::lang.components.testimonialslist.show_as.slider'],
             ],
-            'maxItems' => [
+            'max_items' => [
                 'title'             => 'depcore.testimonials::lang.components.testimonialslist.max_items.title',
                 'description'       => 'depcore.testimonials::lang.components.testimonialslist.max_items.description',
                 'default'           => 5,
@@ -45,13 +45,13 @@ class TestimonialsList extends ComponentBase
                 'placeholder' => 'depcore.testimonials::lang.components.testimonialslist.max_items.placeholder',
                 'required' => 'true',
             ],
-            'showClientLogo' => [
+            'show_client_logo' => [
                 'title'             => 'depcore.testimonials::lang.components.testimonialslist.show_client_logo.title',
                 'description'       => 'depcore.testimonials::lang.components.testimonialslist.show_client_logo.description',
                 'default'           => 1,
                 'type'              => 'checkbox',
             ],
-            'perPage' => [
+            'per_page' => [
                 'title'             => 'depcore.testimonials::lang.components.testimonialslist.per_page.title',
                 'description'       => 'depcore.testimonials::lang.components.testimonialslist.per_page.description',
                 'default'           => 10,
@@ -62,11 +62,10 @@ class TestimonialsList extends ComponentBase
                 'required' => 'false',
                 'group' => 'depcore.testimonials::lang.components.testimonialslist.groups.list_options',
             ],
-            'includeCss' => [
+            'include_css' => [
                 'title'             => 'depcore.testimonials::lang.components.testimoniallist.include_css.title',
                 'description'       => 'depcore.testimonials::lang.components.testimoniallist.include_css.description',
                 'type'              => 'checkbox',
-                'required' => 'true',
                 'group' => 'depcore.testimonials::lang.components.testimoniallist.groups.slider_options',
             ],
         ];
@@ -79,15 +78,24 @@ class TestimonialsList extends ComponentBase
      * @return void
      * @author Adam
      **/
-    public function onRun()
-    {
-        $maxItems = $this->property( 'maxItems' );
+    public function onRun() {
+        $this->initialize(  );
+        $this->queryTestimonials(  );
+    }
 
-        if ( $this->property( 'showAs' ) == 'slider' ) {
+    protected function initialize(  ){
+
+        if ( $this->property( 'show_as' ) == 'slider' ) {
             $this->addJs( '/plugins/depcore/testimonials/assets/js/tiny-slider.js'  );
+            $this->property( 'include_css' ) ? $this->addCss( '/plugins/depcore/testimonials/assets/css/tiny-slider.css'  ) : null ;
         }
+    }
 
-        $this->testimonials = Testimonial::published()->get(  );
+    protected function queryTestimonials(  ){
+        $page = $this->param( 'page' ) ? $this->param( 'page' ) : 0;
 
+        (integer) $this->property( 'max_items' ) > 0 ?
+            $this->testimonials = Testimonial::published( $this->property( 'max_items' ) )->get(  ) :
+            $this->testimonials = Testimonial::published()->paginate( $this->property( 'per_page' ) ,$page ) ;
     }
 }

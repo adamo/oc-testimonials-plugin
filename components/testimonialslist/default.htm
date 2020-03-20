@@ -1,10 +1,10 @@
-<div class="depcore__testimonials-container {{ __SELF__.property('showAs') }}">
+<div class="depcore__testimonials-container {{ __SELF__.property('show_as') }}">
 	{% for testimonial in __SELF__.testimonials %}
 		<div>
 			<blockquote class="testimonial">
 				<div class="testimonial-content">{{ testimonial.content|raw }}</div>
 				<footer class='testimonial-meta'>
-					{% if __SELF__.property('showClientLogo') and testimonial.client.logo %}
+					{% if __SELF__.property('show_client_logo') and testimonial.client.logo %}
 					  <figure><img src="{{ testimonial.client.logo.path }}" alt="{{ testimonial.client.logo.description ?  testimonial.client.logo.description : testimonial.client.name }}"></figure>
 					{% endif %}
 					<div class="author">
@@ -18,6 +18,6 @@
 		</div>
 	{% endfor %}
 </div>
-{% if __SELF__.property('showAs') == 'list' %}
-  {% partial __SELF__~'::pagination' records=testimonials %}
+{% if __SELF__.property('show_as') == 'list' %}
+  {% partial __SELF__~'::pagination' records=__SELF__.testimonials %}
 {% endif %}
