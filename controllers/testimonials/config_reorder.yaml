@@ -1,0 +1,5 @@
+title: depcore.testimonials::lang.testimonials.reorder
+nameFrom: author
+modelClass: Depcore\Testimonials\Models\Testimonial
+toolbar:
+    buttons: reorder_toolbar

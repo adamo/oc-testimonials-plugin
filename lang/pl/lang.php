@@ -33,7 +33,7 @@ return [
         'delete_selected_empty' => 'Nie wybrano referencji do usunięcia.',
         'label' => 'Referencje',
         'new' => 'Dodaj referencje',
-        'reorder' => 'depcore.testimonials::lang.testimonials.reorder',
+        'reorder' => 'Zmień kolejność',
     ],
     'components' => [
         'testimonialslist' => [

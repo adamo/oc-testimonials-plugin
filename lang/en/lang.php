@@ -2,11 +2,10 @@
 
 return [
     'plugin' => [
-        'name' => 'testimonials',
+        'name' => 'Testimonials',
         'description' => 'Simple testimonials plugin',
     ],
     'permissions' => [
-        'some_permission' => 'Permission example',
         'create_testimonials' => 'Create testimonials',
     ],
     'testimonial' => [

@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: depcore.testimonials::lang.client.name
+        type: text
+    logo:
+        type: fileupload
+        mode: image
+        label: depcore.testimonials::lang.client.logo
