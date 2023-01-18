@@ -82,6 +82,10 @@ return [
                 'title' => 'Dołącz CSS',
                 'description' => 'Dołącza podstawowy arkusz styli z wtyczki Tiny Slider',
             ],
+            'include_css' => [
+                'title' => 'Dołącz JS',
+                'description' => 'Dołącza podstawowy skrypt z wtyczki Tiny Slider',
+            ],
             'groups' => [
                 'slider_options' => 'Opcje karuzeli',
             ],

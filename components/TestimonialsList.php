@@ -68,6 +68,12 @@ class TestimonialsList extends ComponentBase
                 'type'              => 'checkbox',
                 'group' => 'depcore.testimonials::lang.components.testimoniallist.groups.slider_options',
             ],
+            'include_js' => [
+                'title'             => 'depcore.testimonials::lang.components.testimoniallist.include_js.title',
+                'description'       => 'depcore.testimonials::lang.components.testimoniallist.include_js.description',
+                'type'              => 'checkbox',
+                'group' => 'depcore.testimonials::lang.components.testimoniallist.groups.slider_options',
+            ],
         ];
     }
 
@@ -86,8 +92,11 @@ class TestimonialsList extends ComponentBase
     protected function initialize(  ){
 
         if ( $this->property( 'show_as' ) == 'slider' ) {
-            $this->addJs( '/plugins/depcore/testimonials/assets/js/tiny-slider.js'  );
-            $this->property( 'include_css' ) ? $this->addCss( '/plugins/depcore/testimonials/assets/css/tiny-slider.css'  ) : null ;
+            if($this->property( 'include_js' )){
+                $this->addJs( '/plugins/depcore/testimonials/assets/js/tiny-slider.js' );
+                $this->addJs( '/plugins/depcore/testimonials/assets/js/activate-tns.js' );
+            };
+            $this->property( 'include_css' ) ? $this->addCss( '/plugins/depcore/testimonials/assets/css/tiny-slider.css' ) : null ;
         }
     }
 

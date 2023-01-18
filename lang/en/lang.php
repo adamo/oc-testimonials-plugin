@@ -80,6 +80,10 @@ return [
                 'title' => 'Include CSS',
                 'description' => 'Include the default Tiny Slider stylesheet',
             ],
+            'include_js' => [
+                'title' => 'Include JS',
+                'description' => 'Include the default Tiny Slider scripts',
+            ],
             'groups' => [
                 'slider_options' => 'Carousel options',
             ],
