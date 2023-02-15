@@ -122,4 +122,21 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'makeExpandable' => function ($content, $words){
+                    $array = explode(' ', $content);
+                    $arrayShortened = array_splice($array, 0, $words);
+                    $arrayContent = array_splice($array, 0, count($array));
+                    
+                    $continuation = implode(' ', $arrayContent);
+                    $shortenedString = implode(' ', $arrayShortened);
+                    return '<p>' .$shortenedString . '</p><details><summary>&hellip;</summary><p>' . $continuation . '</p></details>';
+                }
+            ]
+        ];
+    }   
+
 }

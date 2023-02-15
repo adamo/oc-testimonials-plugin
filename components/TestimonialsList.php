@@ -107,5 +107,9 @@ class TestimonialsList extends ComponentBase
         (integer) $this->property( 'max_items' ) > 0 ?
             $this->testimonials = Testimonial::published( $this->property( 'max_items' ) )->get(  ) :
             $this->testimonials = Testimonial::published()->paginate( $this->property( 'per_page' ) ,$page ) ;
+            
+            // foreach($this->testimonials as $testimonial){
+            //     $testimonial->content = '<p>test </p><details><sumary>wiecej</sumary><p>rozwiniete</p></details>';
+            // }
     }
 }
