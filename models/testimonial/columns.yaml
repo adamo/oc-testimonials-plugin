@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    author:
+        label: depcore.testimonials::lang.testimonial.author
+        searchable: true
+    client:
+        relation: client
+        select: name
+        label: depcore.testimonials::lang.client.label

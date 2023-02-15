@@ -1,0 +1,7 @@
+<div class="depcore__clients-list {% if __SELF__.property('showSlider') %}depcore__testimonials-container{% endif %}">
+	{% for client in __SELF__.clients %}
+	 	<figure class=client-logo>
+	 		<img src="{{ client.logo.path }}" alt="{{ client.logo.description ? client.logo.description : client.name }}" title='{{ client.logo.title }}'>
+	 	</figure>
+	{% endfor %}
+</div>

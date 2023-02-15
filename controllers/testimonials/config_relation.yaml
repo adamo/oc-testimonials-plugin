@@ -1,0 +1,9 @@
+client:
+    label: depcore.testimonials::lang.client.label
+    view:
+        form: $/depcore/testimonials/models/client/fields.yaml
+        toolbarButtons: add|create|delete
+    manage:
+        list: $/depcore/testimonials/models/client/columns.yaml
+        form: $/depcore/testimonials/models/client/fields.yaml
+        recordsPerPage: 10

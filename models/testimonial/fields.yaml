@@ -1,0 +1,32 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    author:
+      label: depcore.testimonials::lang.testimonial.author
+      type: text
+      span: left
+    company_position:
+      label: depcore.testimonials::lang.testimonial.position
+      type: text
+      span: right
+    clientSection:
+      label: depcore.testimonials::lang.client.label
+      type: section
+    client:
+      type: partial
+      path: client
+    content:
+      label: depcore.testimonials::lang.testimonial.content
+      type: richeditor
+      span: full
+    issued_at:
+      type: datepicker
+      mode: date
+      label: depcore.testimonials::lang.testimonial.issued_at
+    is_published:
+      label: depcore.testimonials::lang.testimonial.is_published
+      type: switch
+      on: depcore.testimonials::lang.global.yes
+      off: depcore.testimonials::lang.global.no

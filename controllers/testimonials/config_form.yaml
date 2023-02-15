@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: depcore.testimonials::lang.testimonial.label
+
+# Model Form Field configuration
+form: $/depcore/testimonials/models/testimonial/fields.yaml
+
+# Model Class name
+modelClass: Depcore\Testimonials\Models\Testimonial
+
+# Default redirect location
+defaultRedirect: depcore/testimonials/testimonials
+
+# Create page
+create:
+    title: depcore.testimonials::lang.testimonial.create_title
+    redirect: depcore/testimonials/testimonials/update/:id
+    redirectClose: depcore/testimonials/testimonials
+
+# Update page
+update:
+    title: depcore.testimonials::lang.testimonial.update_title
+    redirect: depcore/testimonials/testimonials
+    redirectClose: depcore/testimonials/testimonials
+
+# Preview page
+preview:
+    title: depcore.testimonials::lang.testimonial.preview_title

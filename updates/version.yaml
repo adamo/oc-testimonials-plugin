@@ -1,0 +1,10 @@
+1.0.1: First version of testimonials
+1.0.2:
+  - Create base tables
+  - create_testimonials_table.php
+1.0.3:
+  - Create client tables
+  - create_clients_table.php
+1.0.4:
+  - Added client as a reference
+  - update_testimonials_table-1.php
